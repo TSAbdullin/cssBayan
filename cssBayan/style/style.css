@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  background-color: rgb(237, 235, 230);
+}
+
+.title {
+  font-size: 45px;
+  width: 100%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.accordion-element {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.accordion-element_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.accordion-element:active {
+  color: blue;
+}
+
+.accordion-element__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.accordion-element__trigger {
+  display: block;
+  border-top: 1px solid black;
+  cursor: pointer;
+}
+
+.accordion-element_plus {
+  display: none;
+}
+
+.accordion-element_title {
+  color: blue;
+  font-size: 30px;
+}
+
+.accordion-element__content {
+  padding: 20px;
+  border: none;
+  display: none;
+}
+
+.accordion-element_image {
+  width: 65%;
+}
+
+.accordion-element:checked ~ .accordion-element_image {
+  opacity: 1;
+  transition: 1s ease-in-out;
+}
+
+.accordion-element_title,
+.title {
+  font-family: 'Pacifico', sans-serif;
+}
+
+.accordion-element__input:checked ~ .accordion-element__trigger {
+  background-color: #eee;
+}
+
+.accordion-element__input:checked
+  ~ .accordion-element_wrapper
+  .accordion-element_title {
+  color: black;
+}
+
+.accordion-element__input:checked ~ .accordion-element__content,
+.accordion-element_image {
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+}
+
+.accordion-element__input:checked
+  ~ .accordion-element_wrapper
+  .accordion-element_plus {
+  transform: rotate(45deg);
+}
+
+.accordion:hover .accordion-element_wrapper .accordion-element_title {
+  color: black;
+}
+
+.accordion:hover .accordion-element_wrapper .accordion-element_plus {
+  display: block;
+}
+
+/* .accordion-element_wrapper:hover ~ .accordion-element_image {
+  display: block;
+} */
+
+// Мобильный адаптив :D
+
+@media (max-width: 821px) {
+  .accordion-element_image {
+    width: 70%;
+  }
+}
+
+@media (max-width: 616px) {
+  .accordion-element_image {
+    width: 85%;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+
+  .accordion-element_title {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 378px) {
+  .title {
+    font-size: 30px;
+  }
+  .accordion-element_title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 322px) {
+  .title {
+    font-size: 25px;
+  }
+
+  .accordion-element_image {
+    width: 100%;
+  }
+
+  .accordion-element_title {
+    font-size: 17px;
+  }
+}
+
+// конец мобильного адаптива :D
