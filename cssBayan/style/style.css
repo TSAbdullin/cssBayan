@@ -11,6 +11,10 @@ body {
   background-color: rgb(237, 235, 230);
 }
 
+.title {
+  font-size: 45px;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -25,6 +29,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .accordion-element__input {
@@ -40,18 +45,23 @@ body {
   cursor: pointer;
 }
 
-/* .accordion-element_plus {
+.accordion-element_plus {
   display: none;
-} */
+}
 
 .accordion-element_title {
   color: blue;
+  font-size: 30px;
 }
 
 .accordion-element__content {
   padding: 20px;
   border: none;
   display: none;
+}
+
+.accordion-element_image {
+  width: 65%;
 }
 
 .accordion-element_title,
@@ -63,18 +73,78 @@ body {
   background-color: #eee;
 }
 
-.accordion-element__input:checked ~ .accordion-element_wrapper
+.accordion-element__input:checked
+  ~ .accordion-element_wrapper
   .accordion-element_title {
   color: black;
 }
 
-.accordion-element__input:checked ~ .accordion-element__content, .accordion-element_image {
+.accordion-element__input:checked ~ .accordion-element__content,
+.accordion-element_image {
   display: flex;
   justify-content: center;
+  opacity: 1;
 }
 
-.accordion-element__input:checked ~ .accordion-element_wrapper
+.accordion-element__input:checked
+  ~ .accordion-element_wrapper
   .accordion-element_plus {
   transform: rotate(45deg);
 }
 
+.accordion:hover .accordion-element_wrapper .accordion-element_title {
+  color: black;
+}
+
+.accordion:hover .accordion-element_wrapper .accordion-element_plus {
+  display: block;
+}
+
+.accordion-element__trigger:active {
+  color: red !important;
+}
+
+.accordion-element_wrapper:hover ~ .accordion-element_image {
+  display: block;
+}
+
+// Мобильный адаптив :D
+
+@media (max-width: 821px) {
+  .accordion-element_image {
+    width: 70%;
+  }
+}
+
+@media (max-width: 616px) {
+  .accordion-element_image {
+    width: 85%;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+
+  .accordion-element_title {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 378px) {
+  .title {
+    font-size: 30px;
+  }
+  .accordion-element_title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 322px) {
+  .title {
+    font-size: 25px;
+  }
+
+  .accordion-element_title {
+    font-size: 17px;
+  }
+}
