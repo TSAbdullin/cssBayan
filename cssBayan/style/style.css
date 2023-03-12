@@ -13,6 +13,7 @@ body {
 
 .title {
   font-size: 45px;
+  width: 100%;
 }
 
 .container {
@@ -30,6 +31,10 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.accordion-element:active {
+  color: blue;
 }
 
 .accordion-element__input {
@@ -62,6 +67,11 @@ body {
 
 .accordion-element_image {
   width: 65%;
+}
+
+.accordion-element:checked ~ .accordion-element_image {
+  opacity: 1;
+  transition: 1s ease-in-out;
 }
 
 .accordion-element_title,
@@ -100,13 +110,9 @@ body {
   display: block;
 }
 
-.accordion-element__trigger:active {
-  color: red !important;
-}
-
-.accordion-element_wrapper:hover ~ .accordion-element_image {
+/* .accordion-element_wrapper:hover ~ .accordion-element_image {
   display: block;
-}
+} */
 
 // Мобильный адаптив :D
 
@@ -144,7 +150,13 @@ body {
     font-size: 25px;
   }
 
+  .accordion-element_image {
+    width: 100%;
+  }
+
   .accordion-element_title {
     font-size: 17px;
   }
 }
+
+// конец мобильного адаптива :D
